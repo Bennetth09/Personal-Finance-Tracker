@@ -1,0 +1,87 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 20px;
+}
+
+.container {
+    max-width: 600px;
+    margin: auto;
+    padding: 20px;
+    background: #fff;
+    border-radius: 5px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+h1, h2, h3 {
+    text-align: center;
+}
+
+.input-section {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+input {
+    padding: 10px;
+    width: 30%;
+}
+
+button {
+    padding: 10px;
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px; /* Rounded corners for buttons */
+}
+
+.add-button {
+    background-color: #28a745; /* Teal for Add Expense */
+}
+
+.add-button:hover {
+    background-color: #006f18; /* Darker teal on hover */
+}
+
+.reset-button {
+    background-color: #d9534f; /* Red for Reset */
+}
+
+.reset-button:hover {
+    background-color: #c9302c; /* Darker red on hover */
+}
+
+/* Styles for Edit and Delete buttons */
+.edit-button {
+    background-color: #007bff; /* Blue for Edit */
+    margin-left: 5px; /* Spacing between buttons */
+}
+
+.edit-button:hover {
+    background-color: #0069d9; /* Darker blue on hover */
+}
+
+.delete-button {
+    background-color: #dc3545; /* Dark Red for Delete */
+    margin-left: 5px; /* Spacing between buttons */
+}
+
+.delete-button:hover {
+    background-color: #c82333; /* Darker red on hover */
+}
+
+.balance-section {
+    text-align: center;
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+li {
+    padding: 5px 0;
+}
