@@ -34,42 +34,42 @@ button {
     color: white;
     border: none;
     cursor: pointer;
-    border-radius: 5px; /* Rounded corners for buttons */
+    border-radius: 5px; 
 }
 
 .add-button {
-    background-color: #28a745; /* Teal for Add Expense */
+    background-color: #28a745; 
 }
 
 .add-button:hover {
-    background-color: #006f18; /* Darker teal on hover */
+    background-color: #006f18; 
 }
 
 .reset-button {
-    background-color: #d9534f; /* Red for Reset */
+    background-color: #d9534f; 
 }
 
 .reset-button:hover {
-    background-color: #c9302c; /* Darker red on hover */
+    background-color: #c9302c;
 }
 
-/* Styles for Edit and Delete buttons */
+
 .edit-button {
-    background-color: #007bff; /* Blue for Edit */
-    margin-left: 5px; /* Spacing between buttons */
+    background-color: #007bff; 
+    margin-left: 5px; 
 }
 
 .edit-button:hover {
-    background-color: #0069d9; /* Darker blue on hover */
+    background-color: #0069d9; 
 }
 
 .delete-button {
-    background-color: #dc3545; /* Dark Red for Delete */
-    margin-left: 5px; /* Spacing between buttons */
+    background-color: #dc3545; 
+    margin-left: 5px; 
 }
 
 .delete-button:hover {
-    background-color: #c82333; /* Darker red on hover */
+    background-color: #c82333; 
 }
 
 .balance-section {
