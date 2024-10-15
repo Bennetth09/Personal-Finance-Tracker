@@ -1,7 +1,7 @@
 let totalIncome = 0;
 let totalExpenses = 0;
 let expenseCategories = {};
-let expenseListArray = []; // To keep track of added expenses
+let expenseListArray = [];
 
 const incomeInput = document.getElementById('income');
 const categoryInput = document.getElementById('category');
@@ -17,7 +17,7 @@ addExpenseButton.addEventListener('click', function () {
     const expenseValue = parseFloat(expenseInput.value);
     const categoryValue = categoryInput.value.trim();
 
-    // Handle income input
+  
     if (!isNaN(incomeValue) && incomeValue > 0) {
         totalIncome = incomeValue;
         incomeInput.value = '';
@@ -26,13 +26,13 @@ addExpenseButton.addEventListener('click', function () {
         return;
     }
 
-    // Handle expense input
+  
     if (!isNaN(expenseValue) && expenseValue > 0 && categoryValue) {
         totalExpenses += expenseValue;
 
-        // Create expense object and add to the array
+       
         const expenseItem = {
-            id: Date.now(), // Unique identifier for each expense
+            id: Date.now(), 
             value: expenseValue,
             category: categoryValue,
         };
@@ -49,21 +49,20 @@ addExpenseButton.addEventListener('click', function () {
     }
 });
 
-// Function to update balance
+
 function updateBalance() {
     const balance = totalIncome - totalExpenses;
     balanceDisplay.textContent = balance >= 0 ? `$${balance}` : `-$${Math.abs(balance)}`;
 }
 
-// Function to update expense list UI
+
 function updateExpenseList() {
     expenseList.innerHTML = '';
     expenseListArray.forEach(expense => {
         const listItem = document.createElement('li');
         listItem.textContent = `Expense: $${expense.value} | Category: ${expense.category}`;
-        listItem.setAttribute('data-id', expense.id); // Set data-id for identifying expense
-        
-        // Create edit button
+        listItem.setAttribute('data-id', expense.id);
+   
         const editButton = document.createElement('button');
         editButton.textContent = 'Edit';
         editButton.classList.add('edit-button');
@@ -71,7 +70,7 @@ function updateExpenseList() {
             editExpense(expense.id);
         });
 
-        // Create delete button
+    
         const deleteButton = document.createElement('button');
         deleteButton.textContent = 'Delete';
         deleteButton.classList.add('delete-button');
@@ -85,7 +84,7 @@ function updateExpenseList() {
     });
 }
 
-// Function to update category list
+
 function updateCategoryList() {
     categoryList.innerHTML = '';
     for (const [category, amount] of Object.entries(expenseCategories)) {
@@ -95,14 +94,14 @@ function updateCategoryList() {
     }
 }
 
-// Function to edit an expense
+
 function editExpense(id) {
     const expense = expenseListArray.find(exp => exp.id === id);
     if (expense) {
         expenseInput.value = expense.value;
         categoryInput.value = expense.category;
         
-        // Remove the expense from the list for re-adding
+       
         totalExpenses -= expense.value;
         expenseListArray = expenseListArray.filter(exp => exp.id !== id);
         updateExpenseList();
@@ -110,28 +109,28 @@ function editExpense(id) {
     }
 }
 
-// Function to delete an expense
+
 function deleteExpense(id) {
     const expense = expenseListArray.find(exp => exp.id === id);
     if (expense) {
-        totalExpenses -= expense.value; // Decrease total expenses
-        expenseCategories[expense.category] -= expense.value; // Decrease category total
+        totalExpenses -= expense.value; 
+        expenseCategories[expense.category] -= expense.value; 
         if (expenseCategories[expense.category] <= 0) {
-            delete expenseCategories[expense.category]; // Remove category if total is 0
+            delete expenseCategories[expense.category]; 
         }
-        expenseListArray = expenseListArray.filter(exp => exp.id !== id); // Remove from the array
+        expenseListArray = expenseListArray.filter(exp => exp.id !== id); 
         updateExpenseList();
         updateCategoryList();
         updateBalance();
     }
 }
 
-// Reset button functionality
+
 resetButton.addEventListener('click', function () {
     totalIncome = 0;
     totalExpenses = 0;
     expenseCategories = {};
-    expenseListArray = []; // Reset the expense list array
+    expenseListArray = []; 
     balanceDisplay.textContent = '0';
     expenseList.innerHTML = '';
     categoryList.innerHTML = '';
