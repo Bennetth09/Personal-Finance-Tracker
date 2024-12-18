@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <title>Personal Finance Tracker</title>
+</head>
+<body>
+    <div class="container">
+        <h1>💰 Personal Finance Tracker</h1>
+        <div class="card">
+            <div class="input-section">
+                <input type="number" id="income" placeholder="Enter your income" />
+                <input type="text" id="category" placeholder="Enter expense category" />
+                <input type="number" id="expense" placeholder="Enter an expense" />
+                <button id="addExpense" class="add-button"><i class="fas fa-plus"></i> Add</button>
+                <button id="reset" class="reset-button"><i class="fas fa-redo"></i> Reset</button>
+            </div>
+        </div>
+        <div class="card balance-section">
+            <h2>Balance: <span id="balance">0</span></h2>
+            <h3>Total Expenses</h3>
+            <ul id="expenseList"></ul>
+            <h3>Expenses by Category</h3>
+            <ul id="categoryList"></ul>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
+
+
+
