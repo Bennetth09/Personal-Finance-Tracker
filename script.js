@@ -28,6 +28,13 @@ addExpenseButton.addEventListener('click', function () {
     if (!isNaN(expenseValue) && expenseValue > 0 && categoryValue) {
         totalExpenses += expenseValue;
 
+        // Update expenseCategories for the added expense
+        if (expenseCategories[categoryValue]) {
+            expenseCategories[categoryValue] += expenseValue;
+        } else {
+            expenseCategories[categoryValue] = expenseValue;
+        }
+
         const expenseItem = {
             id: Date.now(),
             value: expenseValue,
@@ -96,8 +103,15 @@ function editExpense(id) {
         categoryInput.value = expense.category;
 
         totalExpenses -= expense.value;
+        expenseCategories[expense.category] -= expense.value;
+
+        if (expenseCategories[expense.category] <= 0) {
+            delete expenseCategories[expense.category];
+        }
+
         expenseListArray = expenseListArray.filter(exp => exp.id !== id);
         updateExpenseList();
+        updateCategoryList();
         updateBalance();
     }
 }
@@ -107,9 +121,11 @@ function deleteExpense(id) {
     if (expense) {
         totalExpenses -= expense.value; 
         expenseCategories[expense.category] -= expense.value; 
+
         if (expenseCategories[expense.category] <= 0) {
             delete expenseCategories[expense.category]; 
         }
+
         expenseListArray = expenseListArray.filter(exp => exp.id !== id); 
         updateExpenseList();
         updateCategoryList();
@@ -129,3 +145,4 @@ resetButton.addEventListener('click', function () {
     expenseInput.value = '';
     categoryInput.value = '';
 });
+
